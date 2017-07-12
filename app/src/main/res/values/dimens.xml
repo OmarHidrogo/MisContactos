@@ -5,5 +5,10 @@
 
     <dimen name="top">5dp</dimen>
     <dimen name="espacio_izq">10dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="corner_radius_cardview">4dp</dimen>
+    <dimen name="tnombre">20dp</dimen>
+    <dimen name="elevation_actionBar">4dp</dimen>
+    <dimen name="left">4dp</dimen>
 
 </resources>

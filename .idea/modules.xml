@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MisContactos.iml" filepath="$PROJECT_DIR$/MisContactos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MisContactosgitd,con cardview y recyclerview y like.iml" filepath="$PROJECT_DIR$/MisContactosgitd,con cardview y recyclerview y like.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
