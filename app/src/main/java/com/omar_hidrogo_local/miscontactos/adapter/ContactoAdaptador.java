@@ -1,4 +1,4 @@
-package com.omar_hidrogo_local.miscontactos;
+package com.omar_hidrogo_local.miscontactos.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,6 +10,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.omar_hidrogo_local.miscontactos.pojo.Contacto;
+import com.omar_hidrogo_local.miscontactos.DetalleContacto;
+import com.omar_hidrogo_local.miscontactos.R;
 
 import java.util.ArrayList;
 

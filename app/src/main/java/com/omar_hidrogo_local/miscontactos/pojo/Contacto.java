@@ -1,4 +1,4 @@
-package com.omar_hidrogo_local.miscontactos;
+package com.omar_hidrogo_local.miscontactos.pojo;
 
 /**
  * Created by tmhidrooma on 29/06/2017.
