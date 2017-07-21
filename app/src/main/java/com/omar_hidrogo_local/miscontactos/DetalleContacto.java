@@ -80,7 +80,7 @@ public class DetalleContacto extends AppCompatActivity {
                 // app-defined int constant. The callback method gets the
                 // result of the request.
             }
-            Intent i = new Intent(Intent.ACTION_DIAL,Uri.parse("tel:8711363102"));
+            Intent i = new Intent(Intent.ACTION_DIAL,Uri.parse("tel:"+tvTelefono));
             startActivity(i);
         }
 

@@ -2,10 +2,12 @@ package com.omar_hidrogo_local.miscontactos.db;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 
 import com.omar_hidrogo_local.miscontactos.R;
 import com.omar_hidrogo_local.miscontactos.pojo.Contacto;
 
+import java.net.PortUnreachableException;
 import java.util.ArrayList;
 
 /**
@@ -14,6 +16,7 @@ import java.util.ArrayList;
 
 public class ConstructorContactos {
 
+    public static final int LIKE = 1;
     private Context context;
     public ConstructorContactos(Context context) {
         this.context=context;
@@ -61,5 +64,19 @@ public class ConstructorContactos {
         contentValues.put(ConstantesBaseDatos.TABLE_CONTACTS_FOTO, R.drawable.fa3);
 
         db.insertarContactos(contentValues);
+    }
+
+    public  void darLikeContacto(Contacto contacto){
+        BaseDatos db = new BaseDatos(context);
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(ConstantesBaseDatos.TABLE_LIKES_CONTACT_ID_CONTACTO, contacto.getId());
+        contentValues.put(ConstantesBaseDatos.TABLE_LIKES_CONTACT_NUMERO_LIKES, LIKE);
+        db.insertarLikeContacto(contentValues);
+    }
+
+
+    public  int obtenerLikesContacto(Contacto contacto){
+        BaseDatos db = new BaseDatos(context);
+        return  db.obtenerLikesContacto(contacto);
     }
 }
