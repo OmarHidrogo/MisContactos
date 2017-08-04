@@ -15,6 +15,7 @@ import com.omar_hidrogo_local.miscontactos.db.ConstructorContactos;
 import com.omar_hidrogo_local.miscontactos.pojo.Contacto;
 import com.omar_hidrogo_local.miscontactos.DetalleContacto;
 import com.omar_hidrogo_local.miscontactos.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -47,9 +48,13 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
     public void onBindViewHolder(final ContactoViewHolder contactoViewHolder, int position) {
         final Contacto contacto = contactos.get(position);
         //contactoViewHolder.imgFoto.setImageResource(contacto.getUrlFoto());
+        Picasso.with(activity)
+                .load(contacto.getUrlFoto())
+                .placeholder(R.drawable.contacto)
+                .into(contactoViewHolder.imgFoto);
         /*contactoViewHolder.tvNombreCV.setText(contacto.getNombre());
         contactoViewHolder.tvTelefonoCV.setText(contacto.getTelefono());*/
-        contactoViewHolder.tvLikes.setText(String.valueOf(contacto.getLikes())+ " Likes");
+        contactoViewHolder.tvLikes.setText(String.valueOf(contacto.getLikes()));
 
         contactoViewHolder.imgFoto.setOnClickListener(new View.OnClickListener() {
             @Override

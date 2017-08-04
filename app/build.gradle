@@ -37,4 +37,6 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.3.0'
     //Libreria conversion de JSON
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    //Libreria para implementar imagenes con url
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }

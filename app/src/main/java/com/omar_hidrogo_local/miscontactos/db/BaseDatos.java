@@ -63,7 +63,7 @@ public class BaseDatos extends SQLiteOpenHelper{
         Cursor registros = db.rawQuery(query, null);
 
         while (registros.moveToNext()){
-            Contacto contactoActual = new Contacto();
+           /* Contacto contactoActual = new Contacto();
             contactoActual.setId(registros.getInt(0));
             contactoActual.setNombre(registros.getString(1));
             contactoActual.setTelefono(registros.getString(2));
@@ -82,7 +82,7 @@ public class BaseDatos extends SQLiteOpenHelper{
                 contactoActual.setLikes(0);
             }
 
-            contactos.add(contactoActual);
+            contactos.add(contactoActual);*/
         }
             db.close();
 

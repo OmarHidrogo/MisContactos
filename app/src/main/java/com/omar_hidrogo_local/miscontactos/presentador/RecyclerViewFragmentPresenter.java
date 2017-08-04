@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.omar_hidrogo_local.miscontactos.adapter.ContactoAdaptador;
 import com.omar_hidrogo_local.miscontactos.db.ConstructorContactos;
 import com.omar_hidrogo_local.miscontactos.fragment.IRecyclerViewFragmentView;
@@ -47,8 +48,9 @@ public class RecyclerViewFragmentPresenter implements IRecyclerViewFragmentPrese
 
     @Override
     public void obtenerMediosRecientes() {
-        RestApiAdapter restApiAdapter = new RestApiAdapter();
-        EndpointsApi endpointsApi = restApiAdapter.establecerConexionRestApiInstagram();
+        RestApiAdapter restApiAdapter = new RestApiAdapter();                                           //conexion a web services
+        Gson gsonMediaRecent = restApiAdapter.construyeGsonDeserializadorMediaRecent();                 //se prepara objeto Gson  realizando una deserializadorpersonalizado
+        EndpointsApi endpointsApi = restApiAdapter.establecerConexionRestApiInstagram(gsonMediaRecent);//Establecemos la conexion y pasamos el objeto gsonMediaRecent
         Call<ContactoResponse> contactoResponseCall = endpointsApi.getRecentMedia();
 
         contactoResponseCall.enqueue(new Callback<ContactoResponse>() {

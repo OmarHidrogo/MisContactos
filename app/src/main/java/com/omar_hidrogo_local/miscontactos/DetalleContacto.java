@@ -17,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import java.net.URI;
 
 public class DetalleContacto extends AppCompatActivity {
@@ -35,18 +37,23 @@ public class DetalleContacto extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detalle_contacto);
+        setContentView(R.layout.activity_detalle_contacto_foto);
 
         //es necesario recibir los parametros enviados de un Intent en Bundle
         Bundle extras = getIntent().getExtras();
         String url = extras.getString(KEY_EXTRA_URL);
-        String likes = extras.getString(KEY_EXTRA_LIKES);
+        int likes = extras.getInt(KEY_EXTRA_LIKES);
 
         //es necesario sincronizar los textView del layout y guardarlo en una variable.
         tvLikesDetalle = (TextView) findViewById(R.id.tvLikesDetalle);
 
         //asignar el valor de la variable  al android:text
         tvLikesDetalle.setText(String.valueOf(likes));
+        imgFotoDetalle = (ImageView) findViewById(R.id.imgFotoDetalle);
+        Picasso.with(this)
+                .load(url)
+                .placeholder(R.drawable.contacto)
+                .into(imgFotoDetalle);
     }
 
    /* //metodo para llamar
