@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,10 +21,14 @@ import java.net.URI;
 
 public class DetalleContacto extends AppCompatActivity {
 
+    private static final String KEY_EXTRA_URL = "url";
+    private static final String KEY_EXTRA_LIKES = "likes";
     //Variables en raiz
-    private TextView tvNombre;
-    private TextView tvTelefono;
-    private TextView tvEmail;
+    //private TextView tvNombre;
+    //private TextView tvTelefono;
+    //private TextView tvEmail;
+    private ImageView imgFotoDetalle;
+    private TextView tvLikesDetalle;
 
     final private int REQUEST_CODE_ASK_PERMISSIONS =123;
 
@@ -33,25 +38,18 @@ public class DetalleContacto extends AppCompatActivity {
         setContentView(R.layout.activity_detalle_contacto);
 
         //es necesario recibir los parametros enviados de un Intent en Bundle
-        Bundle parametros = getIntent().getExtras();
-
-        String nombre = parametros.getString(getResources().getString(R.string.pnombre));//nombre
-        String telefono = parametros.getString(getResources().getString(R.string.ptelefono));//telefono
-        String email = parametros.getString(getResources().getString(R.string.pemail));//email
-
+        Bundle extras = getIntent().getExtras();
+        String url = extras.getString(KEY_EXTRA_URL);
+        String likes = extras.getString(KEY_EXTRA_LIKES);
 
         //es necesario sincronizar los textView del layout y guardarlo en una variable.
-        tvNombre = (TextView) findViewById(R.id.tvNombre);
-        tvTelefono = (TextView) findViewById(R.id.tvTelefono);
-        tvEmail = (TextView) findViewById(R.id.tvEmail);
+        tvLikesDetalle = (TextView) findViewById(R.id.tvLikesDetalle);
 
         //asignar el valor de la variable  al android:text
-        tvNombre.setText(nombre);
-        tvTelefono.setText(telefono);
-        tvEmail.setText(email);
+        tvLikesDetalle.setText(String.valueOf(likes));
     }
 
-    //metodo para llamar
+   /* //metodo para llamar
     public void llamar(View v) {
 
         int permissioncheck = ContextCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE);
@@ -121,10 +119,10 @@ public class DetalleContacto extends AppCompatActivity {
             Intent i = new Intent(Intent.ACTION_DIAL,Uri.parse("tel:8711363102"));
             startActivity(i);
         //startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:"+telefono)));*/
-    }
+
 
     //Metodo para enviar correo electronico
-    public void enviarMail(View v){
+  /* public void enviarMail(View v){
         String email = tvEmail.getText().toString();
         Intent emailIntent = new Intent ((Intent.ACTION_SEND));
         emailIntent.setData(Uri.parse("mailto:"));
@@ -144,10 +142,10 @@ public class DetalleContacto extends AppCompatActivity {
                 startActivity(intent);
             }
         return super.onKeyDown(keyCode, event);
-    }
+    }*/
 
 
-    @Override
+   /* @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
         switch (requestCode) {
@@ -170,5 +168,5 @@ public class DetalleContacto extends AppCompatActivity {
             // other 'case' lines to check for other
             // permissions this app might request
         }
-    }
+    }*/
 }

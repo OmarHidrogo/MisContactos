@@ -7,6 +7,7 @@ package com.omar_hidrogo_local.miscontactos.presentador;
 public interface IRecyclerViewFragmentPresent {
 
     public void obtenerContactosBaseDatos();
+    public void obtenerMediosRecientes();
     public void mostrarContactosRV();
 
 }
